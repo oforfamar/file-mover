@@ -1,0 +1,24 @@
+{
+  "name": "file-mover",
+  "version": "1.0.0",
+  "description": "small library that will move files from one folder to another",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oforfamar/file-mover.git"
+  },
+  "keywords": [
+    "nodejs",
+    "streams",
+    "file system"
+  ],
+  "author": "Tudor Roman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oforfamar/file-mover/issues"
+  },
+  "homepage": "https://github.com/oforfamar/file-mover#readme"
+}
