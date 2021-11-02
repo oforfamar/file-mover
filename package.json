@@ -4,7 +4,7 @@
   "description": "small library that will move files from one folder to another",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index"
+    "start": "node -r dotenv/config start.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/oforfamar/file-mover/issues"
   },
-  "homepage": "https://github.com/oforfamar/file-mover#readme"
+  "homepage": "https://github.com/oforfamar/file-mover#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "js-yaml": "^4.1.0"
+  }
 }
