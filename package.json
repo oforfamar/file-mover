@@ -1,6 +1,6 @@
 {
   "name": "file-mover",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "small library that will move files from one folder to another",
   "main": "index.js",
   "scripts": {
