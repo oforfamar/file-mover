@@ -11,4 +11,4 @@ export default () => {
     console.log('Could not load config file.');
     throw error;
   }
-}
+};

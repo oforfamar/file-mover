@@ -4,7 +4,8 @@
   "description": "small library that will move files from one folder to another",
   "main": "index.js",
   "scripts": {
-    "start": "node -r dotenv/config start.js"
+    "build": "webpack",
+    "start": "node -r dotenv/config ./dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +23,20 @@
   },
   "homepage": "https://github.com/oforfamar/file-mover#readme",
   "dependencies": {
+    "@babel/runtime": "^7.16.0",
     "dotenv": "^10.0.0",
-    "esm": "^3.2.25",
     "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-transform-runtime": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/register": "^7.16.0",
+    "babel-loader": "^8.2.3",
+    "babel-register": "^6.26.0",
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
   }
 }

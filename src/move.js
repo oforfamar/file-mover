@@ -1,26 +1,27 @@
 import path from 'path';
-// import { createReadStream, createWriteStream } from 'fs';
-// import { rm } from 'fs/promises';
+import { createReadStream, createWriteStream } from 'fs';
+import { rm } from 'fs/promises';
 import getFinalName from './file-name-processor';
+import ensureDirectoryExistence from './folder-creator';
 
 const sourcePath = path.resolve(__dirname, process.env.sourceFolder);
 const destPath = path.resolve(__dirname, process.env.destinationFolder);
 
-export default async file => {
+export default async (file) => {
   const sourceFile = path.resolve(sourcePath, file);
   const destinationFile = path.resolve(destPath, getFinalName(file));
 
-  console.log(destinationFile);
+  ensureDirectoryExistence(destinationFile);
 
-  // const readStream = createReadStream(sourceFile);
-  // const writeStream = createWriteStream(destinationFile);
+  const readStream = createReadStream(sourceFile);
+  const writeStream = createWriteStream(destinationFile);
 
-  // readStream.pipe(writeStream);
+  readStream.pipe(writeStream);
 
-  // writeStream.on('close', async () => {
-  //   console.log(`New file created: ${destinationFile}`);
+  writeStream.on('close', async () => {
+    console.log(`New file created: ${destinationFile}`);
 
-  //   await rm(sourceFile);
-  //   console.log(`Deleted file: ${sourceFile}`);
-  // });
+    await rm(sourceFile);
+    console.log(`Deleted file: ${sourceFile}`);
+  });
 };
