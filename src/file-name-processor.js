@@ -60,7 +60,7 @@ class FileProcessor {
   }
 }
 
-export default (file) => {
+export default file => {
   const processor = new FileProcessor(file);
   const finalName = processor
     .removeProvider()

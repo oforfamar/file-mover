@@ -1,4 +1,4 @@
-export default (number) => {
+export default number => {
   let check = 100;
   while (check <= number) {
     check += 100;

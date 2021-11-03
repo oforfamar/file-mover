@@ -7,7 +7,7 @@ import ensureDirectoryExistence from './folder-creator';
 const sourcePath = path.resolve(__dirname, process.env.sourceFolder);
 const destPath = path.resolve(__dirname, process.env.destinationFolder);
 
-export default async (file) => {
+export default async file => {
   const sourceFile = path.resolve(sourcePath, file);
   const destinationFile = path.resolve(destPath, getFinalName(file));
 
