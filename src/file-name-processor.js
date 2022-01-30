@@ -23,14 +23,15 @@ class FileProcessor {
 
   addFolderName() {
     const parts = this.finalName.split(' - ');
-    this.folder = parts[0];
+    const finalPart = parts.pop();
+    this.folder = parts.join(' - ');
     this.originalName = this.folder;
 
     if (config.needsNumberFolder.indexOf(this.folder) === -1) {
       return this;
     }
 
-    const episodeNumber = Number(parts[1].split(' ')[0]);
+    const episodeNumber = Number(finalPart.split(' ')[0]);
     const subFolder = subFolderCalculator(episodeNumber);
 
     this.folder += `/${subFolder}`;
@@ -55,7 +56,10 @@ class FileProcessor {
 
   addSeason() {
     const seasonNumber = config.seasons?.[this.originalName] ?? 1;
-    this.finalName = this.finalName.replace(' - ', ` - s0${seasonNumber}e`);
+    this.finalName = this.finalName.replace(
+      `${this.originalName} - `,
+      `${this.originalName} - s0${seasonNumber}e`
+    );
     return this;
   }
 }
