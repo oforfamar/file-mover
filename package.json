@@ -1,11 +1,12 @@
 {
   "name": "file-mover",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "small library that will move files from one folder to another",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "node -r dotenv/config ./dist/bundle.js"
+    "start": "node -r dotenv/config ./dist/bundle.js",
+    "dry-run": "npm start dry-run"
   },
   "repository": {
     "type": "git",

@@ -11,6 +11,14 @@ export default async file => {
   const sourceFile = path.resolve(sourcePath, file);
   const destinationFile = path.resolve(destPath, getFinalName(file));
 
+  if (process.argv[2]) {
+    console.log({
+      sourceFile,
+      destinationFile
+    });
+    return;
+  }
+
   ensureDirectoryExistence(destinationFile);
 
   const readStream = createReadStream(sourceFile);

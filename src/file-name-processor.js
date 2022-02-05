@@ -1,5 +1,8 @@
 import getConfig from './config-loader';
-import subFolderCalculator from './sub-folder-calculator';
+import {
+  seasonSubFolderCalculator,
+  subFolderCalculator
+} from './folder-names-calculator';
 
 const config = getConfig();
 
@@ -23,15 +26,28 @@ class FileProcessor {
 
   addFolderName() {
     const parts = this.finalName.split(' - ');
-    const finalPart = parts.pop();
+    const episodeNumberWithResolution = parts.pop();
     this.folder = parts.join(' - ');
+
+    if (config.changeName?.[this.folder]) {
+      this.finalName = this.finalName.replace(
+        this.folder,
+        config.changeName[this.folder]
+      );
+
+      this.folder = this.folder.replace(
+        this.folder,
+        config.changeName[this.folder]
+      );
+    }
+
     this.originalName = this.folder;
 
     if (config.needsNumberFolder.indexOf(this.folder) === -1) {
       return this;
     }
 
-    const episodeNumber = Number(finalPart.split(' ')[0]);
+    const episodeNumber = Number(episodeNumberWithResolution.split(' ')[0]);
     const subFolder = subFolderCalculator(episodeNumber);
 
     this.folder += `/${subFolder}`;
@@ -56,9 +72,10 @@ class FileProcessor {
 
   addSeason() {
     const seasonNumber = config.seasons?.[this.originalName] ?? 1;
+    const seasonFolder = seasonSubFolderCalculator(seasonNumber);
     this.finalName = this.finalName.replace(
       `${this.originalName} - `,
-      `${this.originalName} - s0${seasonNumber}e`
+      `${seasonFolder}${this.originalName} - s0${seasonNumber}e`
     );
     return this;
   }
