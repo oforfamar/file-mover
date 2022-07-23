@@ -4,6 +4,9 @@ import move from './move';
 
 const sourceFolder = path.resolve(__dirname, process.env.sourceFolder);
 
+const now = new Date();
+console.log(`Starting execution at - ${now}`);
+
 (async () => {
   try {
     const files = await readdir(sourceFolder);
