@@ -1,12 +1,19 @@
-needsNumberFolder:
-  - One Piece
-  - Boruto - Naruto Next Generations
-seasons:
-  Shingeki no Kyojin: 4
-  Boku no Hero Academia: 6
-  Spy x Family: 2
-  Mob Psycho 100: 3
-  Jujutsu Kaisen: 2
-changeName:
-  'Shingeki no Kyojin (The Final Season)': 'Shingeki no Kyojin'
-  'Mob Psycho 100 S3': 'Mob Psycho 100' 
+'Mob Psycho 100':
+  season: 3
+
+'One Piece':
+  season: 1
+  needsNumberFolder: true
+
+'Boruto - Naruto Next Generations'
+  season: 1
+  needsNumberFolder: true
+
+'Boku no Hero Academia':
+  season: 6
+
+'Spy x Family':
+  season: 3
+
+'Jujutsu Kaisen':
+  season: 2
