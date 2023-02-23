@@ -16,6 +16,8 @@ async function main(): Promise<void> {
       const destinationFile = await getTransformedName(file);
 
       await moveFile(sourceFile, destinationFile);
+
+      console.log(`${sourceFile} ->  ${destinationFile}`);
     }
   } catch (error) {
     console.error(error);
