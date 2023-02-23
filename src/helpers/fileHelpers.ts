@@ -30,11 +30,11 @@ export async function moveFile(src: string, dest: string): Promise<void> {
     }
 
     await createFolders(dest);
+
     await fs.copyFile(src, dest);
-    await fs.chown(dest, 999, 999);
     await fs.unlink(src);
 
-    console.log(`${src} -> ${dest}`);
+    await fs.chown(dest, 999, 999);
   } catch (error) {
     console.log(error);
   }

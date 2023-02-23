@@ -30,7 +30,7 @@ async function overwriteWithInfoFromDb(
   fileObj.showName = row.correctName || fileObj.showName;
   fileObj.season = `Season ${row.season?.padStart(2, '0')}`;
   fileObj.file.name = row.correctName || fileObj.showName;
-  fileObj.file.season = row.season;
+  fileObj.file.season = row.season?.padStart(2, '0');
 
   if (row.isLongRunning) {
     fileObj.season = calculateSubFolder(Number(fileObj.file.episode));
